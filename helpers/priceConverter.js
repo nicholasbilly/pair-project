@@ -17,4 +17,4 @@ function converter(price) {
     }
 }
 
-module.exports = priceCoverter
+module.exports = converter
