@@ -11,4 +11,8 @@ app.use(express.urlencoded({extended:false}))
 app.use('/user', userRouter)
 app.use('/drug', drugRouter)
 
+app.get('/test', (req,res)=>{
+    res.render('buydrug')
+})
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

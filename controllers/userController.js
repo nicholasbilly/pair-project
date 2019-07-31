@@ -66,6 +66,8 @@ class UserController {
         .then(drugs => {
             User.findByPk(req.params.id)
             .then(user => {
+                // res.send(user)
+                // res.send(drugs)
                 // res.render('/', {drugs, user})
             })
         })
