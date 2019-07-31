@@ -38,7 +38,13 @@ class DrugController {
     }
 
     static edit(req, res) {
-        // res.render('editDrug')
+         Drug.findByPk(req.params.id)
+         .then(data => {
+            //  res.render('', {data})
+         })
+         .catch(err => {
+             res.send(err)
+         })
     }
 
     static update(req, res) {

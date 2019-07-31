@@ -38,7 +38,13 @@ class UserController {
     }
 
     static edit(req, res) {
-        res.render('editUser')
+        User.findByPk(req.params.id)
+        .then(data => {
+            // res.render('', {data})
+        })
+        .catch(err => {
+            res.send(err)
+        })
     }
 
     static update(req, res) {
