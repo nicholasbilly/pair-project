@@ -11,44 +11,29 @@
     <title>Document</title>
 </head>
 <body>
+    <% include ../partials/navbar%>
     <div class= "container">
-        <h1>Edit User By Admin</h1>
-        <form action="/user/edit/<%=data.id%>" method="post">
+        <h1>Add Drug</h1>
+        <form action="/drug/add" method="post">
             <!-- req.body.name -->
             <div class="form-group">
                 <label for='name'>Name</label>
-                <input type="text" name="name" class="form-control" id="exampleInputEmail" value="<%=data.name%>" placeholder="<%=data.name%>">
+                <input type="text" name="name" class="form-control" id="exampleInputEmail">
             </div>
-            <!-- req.body.gender -->
-            <div class="control-group">
-                <label class="control-label" for="gender">Gender</label>
-                <div class="controls">
-                    <input list="gender" name="gender">
-                    <datalist id="gender">
-                    <option value="Male">
-                    <option value="Female">
-                    </datalist>
-                </div>
-            </div>
-            <!-- req.body.job -->
+            <!-- req.body.price -->
             <div class="form-group">
-                <label for='job'>Job</label>
-                <input type="text" name="job" class="form-control" id="exampleInputEmail" value="<%=data.job%>" placeholder="<%=data.job%>">
+                <label for='price'>Price</label>
+                <input type="number" name="price" class="form-control" id="exampleInputEmail">
             </div>
-            <!-- req.body.phone -->
+            <!-- req.body.stock -->
             <div class="form-group">
-                <label for='phone'>Phone</label>
-                <input type="text" name="phone" class="form-control" id="exampleInputEmail" value="<%=data.phone%>" placeholder="<%=data.phone%>">
-            </div>
-            <!-- req.body.email -->
-            <div class="form-group">
-                <label for='email'>Email</label>
-                <input type="text" name="email" class="form-control" id="exampleInputEmail" value="<%=data.email%>" placeholder="<%=data.email%>">
+                <label for='stock'>Stock</label>
+                <input type="number" name="stock" class="form-control" id="exampleInputEmail">
             </div>
             <div class="control-group">
                 <!-- Button -->
                 <div class="controls" style="padding-top: 20px ">
-                <button class="btn btn-success">Edit</button>
+                <button class="btn btn-success">Add</button>
                 </div>
             </div>
         </form>
