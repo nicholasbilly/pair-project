@@ -1,6 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Model = sequelize.Sequelize.Model
+  const hash = require('../helpers/passwordHash')
   class User extends Model {
     static associate(models) {
       User.hasMany(models.Transaction)
@@ -31,5 +32,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     role: DataTypes.STRING
   }, {sequelize})
+
+  User.addHook('beforeCreate', (user) => {
+    user.password = hash(user.password)
+  })
   return User;
 };
