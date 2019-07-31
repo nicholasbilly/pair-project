@@ -13,5 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     TotalItems: DataTypes.INTEGER,
     TotalPayment: DataTypes.INTEGER
   }, {sequelize})
+
+  Transaction.addHook
   return Transaction;
 };

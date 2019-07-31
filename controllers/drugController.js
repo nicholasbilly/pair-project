@@ -1,12 +1,12 @@
 const Drug = require('../models/index').Drug
-const converter = require('../helpers/priceConverter')
+// const converter = require('../helpers/priceConverter')
 
 class DrugController {
     static showAll(req, res) {
         Drug.findAll()
         .then(data => {
             // res.send(data)
-            res.render('drugs', {data, converter})
+            res.render('drugs', {data})
         })
         .catch(err => {
             res.send(err)
