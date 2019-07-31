@@ -9,7 +9,38 @@
 </head>
 <body>
     <%- include ../partials/navbarCustomer%>
-    
+    <div>
+        <table class="table-buy-drug">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <form action="/user/<%= user.id %>/buy" method='post'>
+                <% drugs.forEach((el, i)=>{%>
+                    <tr>
+                    <td><%= i+1 %></td>
+                    <td><%= el.name%></td>
+                    <td><%= el.price%></td>
+                    <td>
+                        <div class="form-total">
+                                <input type="number" class="form-control" id="exampleInputEmail" name="TotalItems">
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-success">Buy</button>
+                    </td>
+                </tr>
+                <%})%>
+                </form>
+            </tbody>
+        </table>
+    </div>  
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

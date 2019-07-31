@@ -68,7 +68,7 @@ class UserController {
             .then(user => {
                 // res.send(user)
                 // res.send(drugs)
-                // res.render('/', {drugs, user})
+                res.render('buydrug', {drugs, user})
             })
         })
         .catch(err => {
@@ -82,7 +82,7 @@ class UserController {
             DrugId: req.body.DrugId
         })
         .then(data => {
-            // res.redirect('/') 
+            res.redirect('/') 
         })
         .catch(err => {
             res.send(err)
