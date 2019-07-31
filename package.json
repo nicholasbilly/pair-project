@@ -6,6 +6,7 @@
   "dependencies": {
     "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "nodemon": "^1.19.1",
     "pg": "^7.12.0",
     "sequelize": "^5.12.1"
   },
@@ -15,5 +16,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholasbilly/pair-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nicholasbilly/pair-project/issues"
+  },
+  "homepage": "https://github.com/nicholasbilly/pair-project#readme"
 }

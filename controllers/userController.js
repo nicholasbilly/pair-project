@@ -4,7 +4,8 @@ class UserController {
     static showAll(req, res) {
         User.findAll()
         .then(data => {
-            res.render('userlist', {data})
+            res,send(data)
+            // res.render('userlist', {data})
         })
         .catch(err => {
             res.send(err)
