@@ -9,7 +9,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   Transaction.init({
     UserId: DataTypes.INTEGER,
-    DrugId: DataTypes.INTEGER
+    DrugId: DataTypes.INTEGER,
+    TotalItems: DataTypes.INTEGER,
+    TotalPayment: DataTypes.INTEGER
   }, {sequelize})
+
+  Transaction.addHook
   return Transaction;
 };

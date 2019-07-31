@@ -21,8 +21,9 @@
                 </tr>
             </thead>
             <tbody>
-                <form action="/user/<%= user.id %>/buy" method='post'>
                 <% drugs.forEach((el, i)=>{%>
+                <form action="/user/<%=user.id%>/buy" method='post'>
+
                     <tr>
                     <td><%= i+1 %></td>
                     <td><%= el.name%></td>
@@ -33,11 +34,14 @@
                         </div>
                     </td>
                     <td>
-                        <button class="btn btn-success">Buy</button>
+                        <input type="hidden" name="DrugId" value="<%= el.id %>">
+
+                        <input type="submit" value="buy">
                     </td>
                 </tr>
+            </form>
+
                 <%})%>
-                </form>
             </tbody>
         </table>
     </div>  

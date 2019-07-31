@@ -1,4 +1,5 @@
 const Drug = require('../models/index').Drug
+// const converter = require('../helpers/priceConverter')
 
 class DrugController {
     static showAll(req, res) {
