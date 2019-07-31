@@ -50,7 +50,7 @@ class UserController {
             res.send(err)
         })
     }
-
+//test
     static update(req, res) {
         User.update(req.body, {where: {id:req.params.id}})
         .then(data => {
