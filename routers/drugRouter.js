@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Drug = require('../controllers/DrugController')
+const Drug = require('../controllers/drugController')
 
 router.get('/', Drug.showAll)
 router.get('/add', Drug.add)
