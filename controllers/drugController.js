@@ -4,7 +4,8 @@ class DrugController {
     static showAll(req, res) {
         Drug.findAll()
         .then(data => {
-            // res.render('druglist', {data})
+            // res.send(data)
+            res.render('drugs', {data})
         })
         .catch(err => {
             res.send(err)
@@ -12,13 +13,13 @@ class DrugController {
     }
 
     static add(req, res) {
-        // res.render('drugAdd')
+        res.render('adddrug')
     }
 
     static create(req, res) {
         Drug.create(req.body)
         .then(data => {
-            // res.redirect('/home')
+            res.redirect('/')
         })
         .catch(err => {
             res.send(err)
@@ -30,7 +31,7 @@ class DrugController {
             where: {id: req.params.id}
         })
         .then(data => {
-            // res.redirect('/drug')
+            res.redirect('/drug')
         })
         .catch(err => {
             res.send(err)
@@ -40,7 +41,8 @@ class DrugController {
     static edit(req, res) {
          Drug.findByPk(req.params.id)
          .then(data => {
-            //  res.render('', {data})
+            //  res.send(data)
+             res.render('editDrug', {data})
          })
          .catch(err => {
              res.send(err)
@@ -50,7 +52,7 @@ class DrugController {
     static update(req, res) {
         Drug.update(req.body, {where: {id:req.params.id}})
         .then(data => {
-            // res.redirect('/Drug')
+            res.redirect('/Drug')
         })
         .catch(err => {
             res.send(err)

@@ -7,36 +7,43 @@
     <title>Users</title>
   </head>
   <body>
+    <%- include ../partials/navbar%>
     <h1>Hello, world!</h1>
     <div>
     <table class="table">
     <thead class="thead-dark">
         <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Password</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Job</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th></th>
+        <th></th>
         </tr>
     </thead>
     <tbody>
+      <% data.forEach(el=>{%>
         <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+          <td><%=el.id%></td>
+          <td><%=el.name%></td>
+          <td><%=el.password%></td>
+          <td><%=el.gender%></td>
+          <td><%=el.job%></td>
+          <td><%=el.phone%></td>
+          <td><%=el.email%></td>
+          <td><%=el.role%></td>
+          <td>
+            <a href='/user/edit/<%=el.id%>'>Edit</a>
+          </td>
+          <td>
+            <a href='/user/delete/<%=el.id%>'>Delete</a>
+          </td>
         </tr>
-        <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        </tr>
-        <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        </tr>
+      <%}) %>
     </tbody>
     </table>
     </div>
