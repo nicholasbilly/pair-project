@@ -4,7 +4,8 @@ class UserController {
     static showAll(req, res) {
         User.findAll()
         .then(data => {
-            res.render('userlist', {data})
+            // res.send(data)
+            res.render('user', {data})
         })
         .catch(err => {
             res.send(err)
@@ -18,7 +19,7 @@ class UserController {
     static create(req, res) {
         User.create(req.body)
         .then(data => {
-            res.redirect('/home')
+            res.redirect('/')
         })
         .catch(err => {
             res.send(err)
