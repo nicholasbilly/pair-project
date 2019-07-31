@@ -1,4 +1,6 @@
 const User = require('../models/index').User
+const Drug = require('../models/index').Drug
+const Transaction = require('../models/index').Transaction
 
 class UserController {
     static showAll(req, res) {
@@ -51,6 +53,32 @@ class UserController {
         User.update(req.body, {where: {id:req.params.id}})
         .then(data => {
             res.redirect('/user')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static buyDrug(req, res) {
+        Drug.findAll()
+        .then(drugs => {
+            User.findByPk(req.params.id)
+            .then(user => {
+                // res.render('/', {drugs, user})
+            })
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static createTransaction(req, res) {
+        Transaction.create({
+            UserId: req.params.id,
+            DrugId: req.body.DrugId
+        })
+        .then(data => {
+            // res.redirect('/') 
         })
         .catch(err => {
             res.send(err)

@@ -8,4 +8,6 @@ router.post('/register', User.create)
 router.get('/delete/:id', User.delete)
 router.get('/edit/:id', User.edit)
 router.post('/edit/:id', User.update)
+router.get('/:id/buy', User.buyDrug)
+router.post('/:id/buy', User.createTransaction)
 module.exports = router
