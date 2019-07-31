@@ -24,6 +24,32 @@ class UserController {
             res.send(err)
         })
     }
+
+    static delete(req, res) {
+        User.destroy({
+            where: {id: req.params.id}
+        })
+        .then(data => {
+            res.redirect('/user')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static edit(req, res) {
+        res.render('editUser')
+    }
+
+    static update(req, res) {
+        User.update(req.body, {where: {id:req.params.id}})
+        .then(data => {
+            res.redirect('/user')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
 }
 
 module.exports = UserController
