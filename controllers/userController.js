@@ -4,8 +4,7 @@ class UserController {
     static showAll(req, res) {
         User.findAll()
         .then(data => {
-            res,send(data)
-            // res.render('userlist', {data})
+            res.render('userlist', {data})
         })
         .catch(err => {
             res.send(err)
@@ -20,6 +19,32 @@ class UserController {
         User.create(req.body)
         .then(data => {
             res.redirect('/home')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static delete(req, res) {
+        User.destroy({
+            where: {id: req.params.id}
+        })
+        .then(data => {
+            res.redirect('/user')
+        })
+        .catch(err => {
+            res.send(err)
+        })
+    }
+
+    static edit(req, res) {
+        res.render('editUser')
+    }
+
+    static update(req, res) {
+        User.update(req.body, {where: {id:req.params.id}})
+        .then(data => {
+            res.redirect('/user')
         })
         .catch(err => {
             res.send(err)
