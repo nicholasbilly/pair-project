@@ -1,6 +1,7 @@
 const User = require('../models/index').User
 const Drug = require('../models/index').Drug
 const Transaction = require('../models/index').Transaction
+const sendEmail = require('../helpers/sendEmail')
 
 class UserController {
     static showAll(req, res) {
@@ -97,8 +98,10 @@ class UserController {
     static invoice(req, res) {
         User.findByPk(req.params.id)
         .then(data => {
-            Transaction.findAll({where:{UserId: data.id}})
+            Transaction.findAll({where:{UserId: data.id}, include: {model: Drug}})
             .then(transaction => {
+                sendEmail(data.email)
+                // res.send(transaction)
                 res.render('invoice', {data, transaction})
             })
             .catch(err => {
