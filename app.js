@@ -20,11 +20,7 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:false}))
 app.use('/user', userRouter)
 app.use('/drug', drugRouter)
-
-
 app.use('/login', loginRouter)
-app.get('/test', (req,res)=>{
-    res.render('transaction')
-})
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
