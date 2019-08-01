@@ -1,6 +1,7 @@
 const User = require('../models/index').User
 const Drug = require('../models/index').Drug
 const Transaction = require('../models/index').Transaction
+const sendEmail = require('../helpers/sendEmail')
 const converter = require('../helpers/priceConverter')
 
 class UserController {
@@ -104,6 +105,7 @@ class UserController {
                 for (let i=0; i<transaction.length; i++){
                     totalPayment+= transaction[i].TotalPayment
                 }
+                sendEmail(data.email)
                 // .findByPk()
                 // let arr = []
                 // arr.push(transaction)
