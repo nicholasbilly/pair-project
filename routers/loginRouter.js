@@ -12,10 +12,10 @@ router.post('/', (req, res, next) => {
     User.findAll({where: {username: req.session.currentUser.username}})
     .then(user => {
         if(bcrypt.compareSync(req.body.password, user[0].password)) {
-            if(user.role === 'admin') {
-                res.redirect('/user/admin')
+            if(user[0].role === 'Admin') {
+                res.redirect('/drug')
             } else {
-                res.redirect('/user/customer')
+                res.redirect(`/user/${user[0].id}/buy`)
             }
         } else {
             res.redirect('/login')
