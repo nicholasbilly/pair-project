@@ -86,7 +86,7 @@ class UserController {
                 TotalPayment: data.price * req.body.TotalItems
                 })
             })
-            .then(data => {
+            .then(data2 => {
                 res.redirect('/') 
             })
             .catch(err => {
