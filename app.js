@@ -1,6 +1,7 @@
+require('dotenv').config();
 const express = require('express')
 const app = express()
-const port = 3500
+const port = process.env.PORT || 3500
 const session = require('express-session')
 const bcrypt = require('bcrypt')
 
