@@ -1,6 +1,7 @@
 const User = require('../models/index').User
 const Drug = require('../models/index').Drug
 const Transaction = require('../models/index').Transaction
+const converter = require('../helpers/priceConverter')
 
 class UserController {
     static showAll(req, res) {
@@ -87,7 +88,7 @@ class UserController {
                 })
             })
             .then(data2 => {
-                res.redirect('/') 
+                res.redirect(`/user/${req.params.id}/buy`) 
             })
             .catch(err => {
                 res.send(err)
@@ -97,9 +98,20 @@ class UserController {
     static invoice(req, res) {
         User.findByPk(req.params.id)
         .then(data => {
-            Transaction.findAll({where:{UserId: data.id}})
+            Transaction.findAll({where:{UserId: data.id}, include: {model : Drug}})
             .then(transaction => {
-                res.render('invoice', {data, transaction})
+                let totalPayment = 0
+                for (let i=0; i<transaction.length; i++){
+                    totalPayment+= transaction[i].TotalPayment
+                }
+                // .findByPk()
+                // let arr = []
+                // arr.push(transaction)
+                // arr.push(data)
+                // res.send(data)
+                //res.send([transaction[0].TotalItems, transaction[0].TotalPayment, transaction[0].Drug.name])
+                res.render('invoice', {data, transaction, totalPayment, converter})
+                
             })
             .catch(err => {
                 res.send(err)

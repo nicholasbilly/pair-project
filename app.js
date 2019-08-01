@@ -13,8 +13,8 @@ app.use('/drug', drugRouter)
 app.get('/login', (req,res)=>{
     res.render('login')
 })
-app.get('/test', (req,res)=>{
-    res.render('transaction')
-})
+// app.get('/test', (req,res)=>{
+//     res.render('transaction')
+// })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
