@@ -50,7 +50,7 @@ class UserController {
                 res.send(err)
             })
     }
-
+//test
     static update(req, res) {
         User.update(req.body, { where: { id: req.params.id } })
             .then(data => {
@@ -66,7 +66,8 @@ class UserController {
             .then(drugs => {
                 User.findByPk(req.params.id)
                     .then(user => {
-                        // res.render('/', {drugs, user})
+                        // res.send(user)
+                        res.render('buydrug', {drugs, user})
                     })
             })
             .catch(err => {
@@ -75,6 +76,7 @@ class UserController {
     }
 
     static createTransaction(req, res) {
+        // res.send(req.body)
         Drug.findByPk(req.body.DrugId)
             .then(data => {
                 Transaction.create({
@@ -85,7 +87,7 @@ class UserController {
                 })
             })
             .then(data => {
-                // res.redirect('/') 
+                res.redirect('/') 
             })
             .catch(err => {
                 res.send(err)
