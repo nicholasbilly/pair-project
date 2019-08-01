@@ -11,4 +11,5 @@ router.post('/edit/:id', User.update)
 router.get('/:id/buy', User.buyDrug)
 router.post('/:id/buy', User.createTransaction)
 
+
 module.exports = router

@@ -14,6 +14,11 @@
     <div class= "container">
         <h1>Edit User By Admin</h1>
         <form action="/user/edit/<%=data.id%>" method="post">
+            <!-- req.body.username -->
+            <div class="form-group">
+                    <label for='name'>Username</label>
+                    <input type="text" name="username" class="form-control" id="exampleInputEmail" value="<%=data.username%>" placeholder="<%=data.username%>">
+                </div>
             <!-- req.body.name -->
             <div class="form-group">
                 <label for='name'>Name</label>
