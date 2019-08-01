@@ -8,12 +8,13 @@
   </head>
   <body>
     <%- include ../partials/navbar%>
-    <h1>Hello, world!</h1>
-    <div>
-    <table class="table">
+    <h1>User List</h1>
+    <div >
+    <table class="table" style="width: 650px; margin: auto; margin-bottom: 10px">
     <thead class="thead-dark">
         <tr>
         <th scope="col">ID</th>
+        <th scope="col">Username</th>
         <th scope="col">Name</th>
         <th scope="col">Password</th>
         <th scope="col">Gender</th>
@@ -23,12 +24,14 @@
         <th scope="col">Role</th>
         <th></th>
         <th></th>
+        <th></th>
         </tr>
     </thead>
     <tbody>
       <% data.forEach(el=>{%>
         <tr>
           <td><%=el.id%></td>
+          <td><%=el.username%></td>
           <td><%=el.name%></td>
           <td><%=el.password%></td>
           <td><%=el.gender%></td>

@@ -10,6 +10,9 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:false}))
 app.use('/user', userRouter)
 app.use('/drug', drugRouter)
+app.get('/login', (req,res)=>{
+    res.render('login')
+})
 
 app.get('/test', (req,res)=>{
     res.render('buydrug')
