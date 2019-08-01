@@ -30,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    role: DataTypes.STRING
+    role: DataTypes.STRING,
+    username: DataTypes.STRING
   }, {sequelize})
 
   User.addHook('beforeCreate', (user) => {

@@ -14,6 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     TotalPayment: DataTypes.INTEGER
   }, {sequelize})
 
-  Transaction.addHook
+  Transaction.addHook('afterCreate', (transaction, options) => {
+    const Drug = require('./index').Drug
+    Drug.findByPk(transaction.DrugId)
+    .then(data => {
+      Drug.update({stock: (data.stock - transaction.TotalItems)}, {where:{id: transaction.DrugId}})
+    })
+  })
   return Transaction;
 };
