@@ -93,6 +93,19 @@ class UserController {
                 res.send(err)
             })
     }
+
+    static invoice(req, res) {
+        User.findByPk(req.params.id)
+        .then(data => {
+            Transaction.findAll({where:{UserId: data.id}})
+            .then(transaction => {
+                res.render('invoice', {data, transaction})
+            })
+            .catch(err => {
+                res.send(err)
+            })
+        })
+    }
 }
 
 module.exports = UserController
