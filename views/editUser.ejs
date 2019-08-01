@@ -8,11 +8,14 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Dr Onlinet</title>
 </head>
 <body>
+    <%- include ../partials/navbarAdmin%>
+    <br>
     <div class= "container">
         <h1>Edit User By Admin</h1>
+        <br>
         <form action="/user/edit/<%=data.id%>" method="post">
             <!-- req.body.username -->
             <div class="form-group">
@@ -35,6 +38,17 @@
                     </datalist>
                 </div>
             </div>
+            <!-- req.body.role -->
+            <div class="control-group">
+                <label class="control-label" for="role">Role</label>
+                <div class="controls">
+                    <input list="role" name="role">
+                    <datalist id="role">
+                    <option value="Admin">
+                    <option value="Customer">
+                    </datalist>
+                </div>
+            </div>
             <!-- req.body.job -->
             <div class="form-group">
                 <label for='job'>Job</label>
@@ -53,7 +67,7 @@
             <div class="control-group">
                 <!-- Button -->
                 <div class="controls" style="padding-top: 20px ">
-                <button class="btn btn-success">Edit</button>
+                <button class="btn btn-success">Done</button>
                 </div>
             </div>
         </form>

@@ -6,7 +6,9 @@ const converter = require('../helpers/priceConverter')
 
 class UserController {
     static showAll(req, res) {
-        User.findAll()
+        User.findAll({
+            order: [["id", "ASC"]]
+        })
             .then(data => {
                 // res.send(data)
                 res.render('user', { data })
@@ -64,12 +66,14 @@ class UserController {
     }
 
     static buyDrug(req, res) {
-        Drug.findAll()
+        Drug.findAll({
+            order: [["id", "ASC"]]
+        })
             .then(drugs => {
                 User.findByPk(req.params.id)
                     .then(user => {
                         // res.send(user)
-                        res.render('buydrug', {drugs, user})
+                        res.render('buydrug', {drugs, user, converter})
                     })
             })
             .catch(err => {

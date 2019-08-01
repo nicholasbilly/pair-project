@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Dr Online</title>
 </head>
 <body>
     <%- include ../partials/navbarCustomer%>
+    <br>
+    <h1 style="color: teal; font-weight: bold; text-align: center">Drugs List</h1>
+   <br>
     <div>
-        <table class="table-buy-drug">
-            <thead>
+        <table class="table" style="width: 650px; margin: auto; margin-bottom: 10px">
+            <thead class="thead-dark">
                 <tr>
                     <th>No</th>
                     <th>Name</th>
@@ -27,16 +30,15 @@
                     <tr>
                     <td><%= i+1 %></td>
                     <td><%= el.name%></td>
-                    <td><%= el.price%></td>
+                    <td><%= converter(el.price)%></td>
                     <td>
-                        <div class="form-total">
-                                <input type="number" class="form-control" id="exampleInputEmail" name="TotalItems">
+                        <div class="form-total" style="width: 85px">
+                                <input type="number" min="0" class="form-control" id="exampleInputEmail" name="TotalItems">
                         </div>
                     </td>
                     <td>
                         <input type="hidden" name="DrugId" value="<%= el.id %>">
-
-                        <input type="submit" value="buy">
+                        <input type="submit" value="buy" style="width: 60px">
                     </td>
                 </tr>
             </form>
@@ -45,7 +47,10 @@
             </tbody>
         </table>
     </div> 
-     <a class="btn btn-dark btn-lg" href="/user/<%=user.id%>/buy/invoice" role="button" style="display:block;width: 180px;;margin: auto;">Invoice</a>
+    <br>
+    <a class="btn btn-info btn-lg" href="/user/<%=user.id%>/buy/invoice" role="button" style="display:block;width: 180px;;margin: auto;">Invoice</a>
+    <br>
+    <% include ../partials/footer%>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
