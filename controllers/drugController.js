@@ -3,7 +3,9 @@ const Drug = require('../models/index').Drug
 
 class DrugController {
     static showAll(req, res) {
-        Drug.findAll()
+        Drug.findAll({
+            order: [["id", "ASC"]]
+        })
         .then(data => {
             // res.send(data)
             res.render('drugs', {data})
@@ -20,7 +22,7 @@ class DrugController {
     static create(req, res) {
         Drug.create(req.body)
         .then(data => {
-            res.redirect('/')
+            res.redirect('/drug')
         })
         .catch(err => {
             res.send(err)
